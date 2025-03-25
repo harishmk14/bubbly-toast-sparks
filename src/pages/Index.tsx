@@ -1,11 +1,12 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useToast } from "@/components/CustomToast/CustomToastProvider";
 import { motion } from "framer-motion";
 import { AlertTriangle, CheckCircle, Info, AlertCircle } from "lucide-react";
 
 const Index = () => {
   const toast = useToast();
+
 
   const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -24,6 +25,10 @@ const Index = () => {
   const showInfoToast = () => {
     toast.info("This is informative message", loremIpsum);
   };
+
+  useEffect(() => {
+    toast.error("This is error message", loremIpsum);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 p-6">

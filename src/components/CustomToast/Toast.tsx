@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertTriangle, CheckCircle, Info, X } from "lucide-react";
 import { ToastProps } from "@/hooks/useCustomToast";
+import { IoAlertCircleSharp } from "react-icons/io5";
+import { FaCircleCheck } from "react-icons/fa6";
+import { TbAlertCircleFilled } from "react-icons/tb";
+import { GoAlertFill } from "react-icons/go";
 import { cn } from "@/lib/utils";
 
 interface ToastComponentProps extends ToastProps {
@@ -47,26 +51,26 @@ const Toast: React.FC<ToastComponentProps> = ({
     switch (type) {
       case "error":
         return (
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-red-100">
-            <AlertTriangle className="h-5 w-5 text-red-500" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow shadow-red-300 p-1">
+            <GoAlertFill className="h-6 w-6 text-red-500" />
           </div>
         );
       case "warning":
         return (
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-100">
-            <AlertTriangle className="h-5 w-5 text-amber-500" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow shadow-amber-300 p-1">
+            <TbAlertCircleFilled className="h-7 w-7 text-amber-500" />
           </div>
         );
       case "success":
         return (
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100">
-            <CheckCircle className="h-5 w-5 text-emerald-500" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow shadow-emerald-300 p-1">
+            <FaCircleCheck className="h-6 w-6 text-emerald-500" />
           </div>
         );
       case "info":
         return (
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100">
-            <Info className="h-5 w-5 text-blue-500" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow shadow-blue-300 p-1">
+            <TbAlertCircleFilled className="h-7 w-7 text-blue-500" />
           </div>
         );
       default:
@@ -77,17 +81,19 @@ const Toast: React.FC<ToastComponentProps> = ({
   const getBgColor = () => {
     switch (type) {
       case "error":
-        return "bg-red-50";
+        return "bg-gradient-to-b from-red-100 to-white";
       case "warning":
-        return "bg-amber-50";
+        return "bg-gradient-to-b from-amber-100 to-white";
       case "success":
-        return "bg-emerald-50";
+        return "bg-gradient-to-b from-emerald-100 to-white";
       case "info":
-        return "bg-blue-50";
+        return "bg-gradient-to-b from-blue-100 to-white";
       default:
-        return "bg-gray-50";
+        return "bg-gradient-to-b from-gray-100 to-white";
     }
   };
+  
+  
 
   return (
     <AnimatePresence>
@@ -101,11 +107,11 @@ const Toast: React.FC<ToastComponentProps> = ({
             ease: [0.25, 0.1, 0.25, 1.0],
           }}
           className={cn(
-            "w-full max-w-md rounded-xl shadow-sm overflow-hidden",
+            "w-full max-w-md rounded-xl shadow-sm overflow-hidden border-4 border-white",
             getBgColor()
           )}
         >
-          <div className="p-5">
+          <div className="p-5 ">
             <div className="flex items-start">
               <div className="flex-shrink-0 mt-0.5">{getIcon()}</div>
               <div className="ml-4 w-full">
