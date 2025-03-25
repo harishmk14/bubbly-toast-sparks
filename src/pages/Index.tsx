@@ -34,44 +34,44 @@ const Index = () => {
         className="text-center mb-12"
       >
         <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
-          Custom Toast Notifications
+          Toast Notifications
         </h1>
         <p className="text-lg text-gray-600 max-w-xl mx-auto">
-          Click the buttons below to display different types of toast notifications with smooth animations.
+          Click the buttons below to display different types of toast notifications.
         </p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-4xl">
         <ToastButton 
           onClick={showErrorToast} 
-          icon={<AlertTriangle />} 
-          label="Show Error Toast"
-          color="bg-gradient-to-r from-red-500 to-red-600"
-          hoverColor="from-red-600 to-red-700"
+          icon={<AlertTriangle className="h-5 w-5" />} 
+          label="Error Toast"
+          color="bg-red-500"
+          hoverColor="bg-red-600"
         />
         
         <ToastButton 
           onClick={showWarningToast} 
-          icon={<AlertCircle />} 
-          label="Show Warning Toast"
-          color="bg-gradient-to-r from-amber-500 to-amber-600"
-          hoverColor="from-amber-600 to-amber-700"
+          icon={<AlertCircle className="h-5 w-5" />} 
+          label="Warning Toast"
+          color="bg-amber-500"
+          hoverColor="bg-amber-600"
         />
         
         <ToastButton 
           onClick={showSuccessToast} 
-          icon={<CheckCircle />} 
-          label="Show Success Toast"
-          color="bg-gradient-to-r from-emerald-500 to-emerald-600"
-          hoverColor="from-emerald-600 to-emerald-700"
+          icon={<CheckCircle className="h-5 w-5" />} 
+          label="Success Toast"
+          color="bg-emerald-500"
+          hoverColor="bg-emerald-600"
         />
         
         <ToastButton 
           onClick={showInfoToast} 
-          icon={<Info />} 
-          label="Show Info Toast"
-          color="bg-gradient-to-r from-blue-500 to-blue-600"
-          hoverColor="from-blue-600 to-blue-700"
+          icon={<Info className="h-5 w-5" />} 
+          label="Info Toast"
+          color="bg-blue-500"
+          hoverColor="bg-blue-600"
         />
       </div>
     </div>
@@ -91,7 +91,7 @@ const ToastButton: React.FC<ToastButtonProps> = ({ onClick, icon, label, color, 
     <motion.button
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
-      className={`${color} hover:${hoverColor} text-white font-semibold py-4 px-6 rounded-lg shadow-lg flex items-center justify-center transition-all duration-300 ease-in-out`}
+      className={`${color} hover:${hoverColor} text-white font-medium py-3 px-4 rounded-lg shadow-sm flex items-center justify-center transition-all duration-300 ease-in-out`}
       onClick={onClick}
     >
       <span className="mr-2">{icon}</span>

@@ -46,13 +46,29 @@ const Toast: React.FC<ToastComponentProps> = ({
   const getIcon = () => {
     switch (type) {
       case "error":
-        return <AlertTriangle className="h-5 w-5 text-red-500" />;
+        return (
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-red-100">
+            <AlertTriangle className="h-5 w-5 text-red-500" />
+          </div>
+        );
       case "warning":
-        return <AlertTriangle className="h-5 w-5 text-amber-500" />;
+        return (
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-100">
+            <AlertTriangle className="h-5 w-5 text-amber-500" />
+          </div>
+        );
       case "success":
-        return <CheckCircle className="h-5 w-5 text-emerald-500" />;
+        return (
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-100">
+            <CheckCircle className="h-5 w-5 text-emerald-500" />
+          </div>
+        );
       case "info":
-        return <Info className="h-5 w-5 text-blue-500" />;
+        return (
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100">
+            <Info className="h-5 w-5 text-blue-500" />
+          </div>
+        );
       default:
         return null;
     }
@@ -61,15 +77,15 @@ const Toast: React.FC<ToastComponentProps> = ({
   const getBgColor = () => {
     switch (type) {
       case "error":
-        return "bg-red-50 border border-red-100"; // Soft light red
+        return "bg-red-50";
       case "warning":
-        return "bg-amber-50 border border-amber-100"; // Soft light amber
+        return "bg-amber-50";
       case "success":
-        return "bg-emerald-50 border border-emerald-100"; // Soft light green
+        return "bg-emerald-50";
       case "info":
-        return "bg-blue-50 border border-blue-100"; // Soft light blue
+        return "bg-blue-50";
       default:
-        return "bg-gray-50 border border-gray-100"; // Soft light gray fallback
+        return "bg-gray-50";
     }
   };
 
@@ -85,7 +101,7 @@ const Toast: React.FC<ToastComponentProps> = ({
             ease: [0.25, 0.1, 0.25, 1.0],
           }}
           className={cn(
-            "w-full max-w-md rounded-lg shadow-sm overflow-hidden",
+            "w-full max-w-md rounded-xl shadow-sm overflow-hidden",
             getBgColor()
           )}
         >
@@ -94,13 +110,13 @@ const Toast: React.FC<ToastComponentProps> = ({
               <div className="flex-shrink-0 mt-0.5">{getIcon()}</div>
               <div className="ml-4 w-full">
                 <div className="flex justify-between">
-                  <h3 className="text-base font-medium text-gray-800">{title}</h3>
+                  <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
                   <button
                     type="button"
-                    className="ml-auto bg-transparent text-gray-400 hover:text-gray-600 focus:outline-none"
+                    className="ml-auto text-gray-400 hover:text-gray-600 focus:outline-none"
                     onClick={handleClose}
                   >
-                    <X className="h-4 w-4" />
+                    <X className="h-5 w-5" />
                   </button>
                 </div>
                 <div className="mt-1 text-sm text-gray-600">{message}</div>
