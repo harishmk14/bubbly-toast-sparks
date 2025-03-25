@@ -61,15 +61,15 @@ const Toast: React.FC<ToastComponentProps> = ({
   const getBgColor = () => {
     switch (type) {
       case "error":
-        return "bg-red-50";
+        return "bg-red-50 border border-red-100"; // Soft light red
       case "warning":
-        return "bg-amber-50";
+        return "bg-amber-50 border border-amber-100"; // Soft light amber
       case "success":
-        return "bg-emerald-50";
+        return "bg-emerald-50 border border-emerald-100"; // Soft light green
       case "info":
-        return "bg-blue-50";
+        return "bg-blue-50 border border-blue-100"; // Soft light blue
       default:
-        return "bg-white";
+        return "bg-gray-50 border border-gray-100"; // Soft light gray fallback
     }
   };
 
@@ -85,7 +85,7 @@ const Toast: React.FC<ToastComponentProps> = ({
             ease: [0.25, 0.1, 0.25, 1.0],
           }}
           className={cn(
-            "w-full max-w-md rounded-lg shadow-md overflow-hidden",
+            "w-full max-w-md rounded-lg shadow-sm overflow-hidden",
             getBgColor()
           )}
         >
