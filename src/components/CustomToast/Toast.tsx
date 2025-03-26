@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { ToastProps } from "./CustomToastProvider";
-import { AlertTriangle, CheckCircle, Info, AlertCircle, X } from "lucide-react";
+import { AlertTriangle, CheckCircle, Info, AlertCircle, X, Star } from "lucide-react";
 
 interface ToastComponentProps extends ToastProps {
   onClose: () => void;
@@ -99,6 +99,11 @@ const Toast: React.FC<ToastComponentProps> = ({
       <div className="flex-1 mr-8">
         <h3 className="font-semibold text-gray-900">{title}</h3>
         <p className="text-sm text-gray-700 mt-1">{message}</p>
+      </div>
+      
+      {/* New logo element */}
+      <div className="absolute top-3 right-12 opacity-20">
+        <Star className="h-6 w-6 text-gray-500" />
       </div>
       
       <button
