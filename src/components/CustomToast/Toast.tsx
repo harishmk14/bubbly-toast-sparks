@@ -77,6 +77,21 @@ const Toast: React.FC<ToastComponentProps> = ({
     }
   };
 
+  const getBackgroundTextColorByType = () => {
+    switch (type) {
+      case "error":
+        return "text-red-50";
+      case "warning":
+        return "text-amber-50";
+      case "success":
+        return "text-emerald-50";
+      case "info":
+        return "text-blue-50";
+      default:
+        return "text-gray-50";
+    }
+  };
+
   const handleClose = () => {
     setIsExiting(true);
     setTimeout(() => {
@@ -92,23 +107,33 @@ const Toast: React.FC<ToastComponentProps> = ({
       role="alert"
       aria-live="assertive"
     >
-      <div className={`${getIconBgByType()} rounded-full p-2 flex-shrink-0`}>
+      {/* Background "UP!" text */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+        <span 
+          className={`text-8xl font-black ${getBackgroundTextColorByType()} opacity-10 transform -rotate-12`}
+          style={{ letterSpacing: '-0.05em' }}
+        >
+          UP!
+        </span>
+      </div>
+      
+      <div className={`${getIconBgByType()} rounded-full p-2 flex-shrink-0 z-10`}>
         {getIconByType()}
       </div>
       
-      <div className="flex-1 mr-8">
+      <div className="flex-1 mr-8 z-10">
         <h3 className="font-semibold text-gray-900">{title}</h3>
         <p className="text-sm text-gray-700 mt-1">{message}</p>
       </div>
       
-      {/* New logo element */}
-      <div className="absolute top-3 right-12 opacity-20">
+      {/* Star logo element */}
+      <div className="absolute top-3 right-12 opacity-20 z-10">
         <Star className="h-6 w-6 text-gray-500" />
       </div>
       
       <button
         onClick={handleClose}
-        className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
+        className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors z-10"
         aria-label="Close notification"
       >
         <X className="h-4 w-4" />
