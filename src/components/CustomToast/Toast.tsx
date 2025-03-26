@@ -50,15 +50,15 @@ const Toast: React.FC<ToastComponentProps> = ({
   const getBgColorByType = () => {
     switch (type) {
       case "error":
-        return "bg-red-100 border-red-200";
+        return "bg-gradient-to-b from-red-100 to-white border-red-200";
       case "warning":
-        return "bg-amber-100 border-amber-200";
+        return "bg-gradient-to-b from-amber-100 to-white border-amber-200";
       case "success":
-        return "bg-emerald-100 border-emerald-200";
+        return "bg-gradient-to-b from-emerald-100 to-white border-emerald-200";
       case "info":
-        return "bg-blue-100 border-blue-200";
+        return "bg-gradient-to-b from-blue-100 to-white border-blue-200";
       default:
-        return "bg-gray-100 border-gray-300";
+        return "bg-gradient-to-b from-gray-100 to-white border-gray-300";
     }
   };
 
@@ -110,8 +110,8 @@ const Toast: React.FC<ToastComponentProps> = ({
       {/* Background "UP!" text */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
         <span 
-          className={`text-8xl font-black ${getBackgroundTextColorByType()} opacity-10 transform -rotate-12`}
-          style={{ letterSpacing: '-0.05em' }}
+          className={`text-9xl font-black ${getBackgroundTextColorByType()} opacity-10 transform -rotate-12`}
+          style={{ letterSpacing: '-0.05em', fontSize: '12rem' }}
         >
           UP!
         </span>
