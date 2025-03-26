@@ -7,7 +7,7 @@ import { AlertTriangle, CheckCircle, Info, AlertCircle } from "lucide-react";
 const Index = () => {
   const toast = useToast();
 
-  const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.";
 
   const showErrorToast = () => {
     toast.error("This is error message", loremIpsum);

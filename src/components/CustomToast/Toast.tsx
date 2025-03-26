@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { ToastProps } from "./CustomToastProvider";
 import { AlertTriangle, CheckCircle, Info, AlertCircle, X, Star } from "lucide-react";
+import img from '../../assets/App Icon.png';
+
 
 interface ToastComponentProps extends ToastProps {
   onClose: () => void;
@@ -50,15 +52,15 @@ const Toast: React.FC<ToastComponentProps> = ({
   const getBgColorByType = () => {
     switch (type) {
       case "error":
-        return "bg-gradient-to-b from-red-100 to-white border-red-200";
+        return "bg-gradient-to-b from-red-200 to-white border-red-200";
       case "warning":
-        return "bg-gradient-to-b from-amber-100 to-white border-amber-200";
+        return "bg-gradient-to-b from-amber-200 to-white border-amber-200";
       case "success":
-        return "bg-gradient-to-b from-emerald-100 to-white border-emerald-200";
+        return "bg-gradient-to-b from-emerald-200 to-white border-emerald-200";
       case "info":
-        return "bg-gradient-to-b from-blue-100 to-white border-blue-200";
+        return "bg-gradient-to-b from-blue-200 to-white border-blue-200";
       default:
-        return "bg-gradient-to-b from-gray-100 to-white border-gray-300";
+        return "bg-gradient-to-b from-gray-200 to-white border-gray-300";
     }
   };
 
@@ -110,10 +112,11 @@ const Toast: React.FC<ToastComponentProps> = ({
       {/* Background "UP!" text */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
         <span 
-          className={`text-9xl font-black ${getBackgroundTextColorByType()} opacity-10 transform -rotate-12`}
-          style={{ letterSpacing: '-0.05em', fontSize: '12rem' }}
+          className={`text-3xl font-black opacity-10 transform -rotate-12 flex items-center justify-center`}
+          // style={{ letterSpacing: '-0.05em', fontSize: '12rem' }}
         >
-          UP!
+          {/* UP! */}
+          <img src={img} alt="hhjb"  />
         </span>
       </div>
       
@@ -124,11 +127,6 @@ const Toast: React.FC<ToastComponentProps> = ({
       <div className="flex-1 mr-8 z-10">
         <h3 className="font-semibold text-gray-900">{title}</h3>
         <p className="text-sm text-gray-700 mt-1">{message}</p>
-      </div>
-      
-      {/* Star logo element */}
-      <div className="absolute top-3 right-12 opacity-20 z-10">
-        <Star className="h-6 w-6 text-gray-500" />
       </div>
       
       <button
